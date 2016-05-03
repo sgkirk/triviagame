@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Trivia Game</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
@@ -10,6 +11,105 @@
 </head>
 
 <body>
+
+<div class="container">
+<!-- begin container -->
+
+	<header class="title">
+ 		<h1>Trivia Game</h1>
+	</header>
+
+	<!--start button-->
+	<button type="button" onclick="unhide()" id="startbutton" class="start btn btn-primary">Start Game</button>
+
+	<!--timer-->
+	<div id="timer"></div>
+
+	<!--questions-->
+	<div id="questions" class="quest hidden">
+		<!--question 1-->
+		<h4>Question 1</h4>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 1</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 2</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 3</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 4</label>
+		</div>
+		<!--question 2-->
+		<h4>Question 2</h4>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 1</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 2</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 3</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 4</label>
+		</div>
+		<!--question 3-->
+		<h4>Question 3</h4>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 1</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 2</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 3</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 4</label>
+		</div>
+		<!--question 4-->
+		<h4>Question 4</h4>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 1</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 2</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 3</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 4</label>
+		</div>
+		<!--question 5-->
+		<h4>Question 5</h4>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 1</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 2</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 3</label>
+		</div>
+		<div class="radio">
+  		<label><input type="radio" name="optradio">Option 4</label>
+		</div>
+	<!-- close questions -->
+	</div>
+
+	<!-- submit button questions -->
+	<button type="button" class="btn btn-primary">Submit Answers</button>
+
+
+
+<!-- close container -->
+</div>
+
+
+
 
 </body>
 </html>
