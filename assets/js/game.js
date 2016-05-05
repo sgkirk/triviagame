@@ -5,7 +5,7 @@ $(document).ready(function(){
 		correctAnswer: 2
 	}, 	{
 		question: "Which is the best rhyming word?",
-		choices: [" Cat", " Hat", "Rat"],
+		choices: [" Cat", " Hat", " Rat"],
 		correctAnswer: 0
 	},	{
 		question: "Which is the best city?",
@@ -106,7 +106,7 @@ $(document).ready(function(){
 			else if (inCorrect++);
 		}
 
-		score.append("You got " + numCorrect + " correct and " + inCorrect + " wrong!");
+		score.append("<h3>You got " + numCorrect + " correct and " + inCorrect + " wrong!<h3>");
 
 		return score;
 	}
