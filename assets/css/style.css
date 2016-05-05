@@ -1,1 +1,19 @@
+.jumbotron {
+
+	margin-top: 20px;
+    background-image: url(https://i.ytimg.com/vi/5OFBTo7c0P0/maxresdefault.jpg);
+    background-position: 0% 25%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+ }
+
+ h3 {
+ 	color: #cc0099;
+ }
+
+.button {
+	text-decoration: none;
+}
+
 

@@ -1,19 +1,19 @@
 $(document).ready(function(){
 	var questions = [{
 		question: "Which bear is best?",
-		choices: ["bears", "beets", "battlestar galactica"],
+		choices: [" Bears", " Beets", " Battlestar Galactica"],
 		correctAnswer: 2
 	}, 	{
 		question: "Which is the best rhyming word?",
-		choices: ["cat", "hat", "rat"],
+		choices: [" Cat", " Hat", "Rat"],
 		correctAnswer: 0
 	},	{
 		question: "Which is the best city?",
-		choices: ["Tampa", "Naples", "Orlando"],
+		choices: [" Tampa", " Naples", " Orlando"],
 		correctAnswer: 2
 	},	{
 		question: "What is the best caffeinated drink?",
-		choices: ["Tea", "Coffee", "Coke"],
+		choices: [" Tea", " Coffee", " Coke"],
 		correctAnswer: 1
 	}];
 
@@ -35,10 +35,10 @@ $(document).ready(function(){
 			id: "question"
 		});
 
-		var header = $("<h2>Question " + (index + 1) + ":</h2>");
+		var header = $("<h3>Question " + (index + 1) + ":</h3>");
 		qElement.append(header);
 
-		var question = $("<p>").append(questions[index].question);
+		var question = $("<h2>").append(questions[index].question);
 		qElement.append(question);
 
 		var radioButtons = createRadios(index);
