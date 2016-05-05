@@ -1,75 +1,119 @@
 $(document).ready(function(){
+	var questions = [{
+		question: "Which bear is best?",
+		choices: ["bears", "beets", "battlestar galactica"],
+		correctAnswer: 2
+	}, 	{
+		question: "Which is the best rhyming word?",
+		choices: ["cat", "hat", "rat"],
+		correctAnswer: 0
+	},	{
+		question: "Which is the best city?",
+		choices: ["Tampa", "Naples", "Orlando"],
+		correctAnswer: 2
+	},	{
+		question: "What is the best caffeinated drink?",
+		choices: ["Tea", "Coffee", "Coke"],
+		correctAnswer: 1
+	}];
 
-var userScore = {
-correct: 0,
-incorrect: 0, 
-} 
+	var questionCounter = 0;
+	var selections = [];
+	var quiz = $("#quiz");
 
-$('#nextbutton1').hide();
-$('#answer1').hide();
-$('#answer2').hide();
-$('#answer3').hide();
+	displayNext();
 
-var questions = [
-	{
-	question1: "1. Which bear is best?",
-	answer1: ["bears","beets","battlestar galactica"],
-	currentAnswer: 2
-	
-	},
-	{
-	question2: "2. Which rhyming word is best?",
-	answer2: ["cats","rats","hats"],
-	currentAnswer: 0
+	$("#next").on("click", function (e) {
 
+		choose();
+		questionCounter++;
+		displayNext();
+	});
+
+	function createQuestionElement(index) {
+		var qElement = $('<div>', {
+			id: "question"
+		});
+
+		var header = $("<h2>Question " + (index + 1) + ":</h2>");
+		qElement.append(header);
+
+		var question = $("<p>").append(questions[index].question);
+		qElement.append(question);
+
+		var radioButtons = createRadios(index);
+		qElement.append(radioButtons);
+
+		return qElement;
 	}
-	//close questions
-	]     
-    
 
-    $('#startbutton').on('click', function () {
-    		$('#question').append(questions[0].question1);
-    		$('#answer1').append(questions[0].answer1[0]).show();
-    		$('#answer2').append(questions[0].answer1[1]).show();
-    		$('#answer3').append(questions[0].answer1[2]).show();
-    		$('#startbutton').hide();
-    		$('#nextbutton1').show();
-
-
-
-    })
-
- 	$('#nextbutton1').on('click', function () {
-    if ($('input[name="optradio"]:checked').val() == questions[0].currentAnswer){
-	userScore.correct++;
-	} else{
-    userScore.incorrect++;
+	function createRadios(index) {
+		var radioList = $("<ul>");
+		var item;
+		var input = "";
+		for (var i = 0; i < questions[index].choices.length; i++) {
+			item = $("<li>");
+			input = '<input type="radio" name="answer" value=" + i + " />';
+			input += questions[index].choices[i];
+			item.append(input);
+			radioList.append(item);
+		}
+		return radioList;
 	}
-	console.log(userScore);
 
-	$('#question').html(questions[1].question2);
-	$('#answer1').html(questions[1].answer2[0]);
-	$('#answer2').html(questions[1].answer2[1]);
-	$('#answer3').html(questions[1].answer2[2]);
+	function choose() {
+		selections[questionCounter] = +$('input[name="answer"]:checked').val();
+	}
+
+	function displayNext() {
+    quiz.fadeOut(function() {
+      $('#question').remove();
+      
+      if(questionCounter < questions.length){
+        var nextQuestion = createQuestionElement(questionCounter);
+        quiz.append(nextQuestion).fadeIn();
+        if (!(isNaN(selections[questionCounter]))) {
+          $('input[value='+selections[questionCounter]+']').prop('checked', true);
+        }
+        
+        // Controls display of 'prev' button
+        if(questionCounter === 1){
+          $('#prev').show();
+        } else if(questionCounter === 0){
+          
+          $('#prev').hide();
+          $('#next').show();
+        }
+      }else {
+        var scoreElem = displayScore();
+        quiz.append(scoreElem).fadeIn();
+        $('#next').hide();
+        $('#prev').hide();
+        $('#start').show();
+      }
+    });
+  }
+
+	function displayScore() {
+		var score = $("<p>",{id: "question"});
+
+		var numCorrect = 0;
+		var inCorrect = 0;
+		for (var i = 0; i < selections.length; i++) {
+			if (selections[i] == questions[i].correctAnswer) {
+				numCorrect++; 
+			}
+			else if (inCorrect++);
+		}
+
+		score.append("You got " + numCorrect + " correct and " + inCorrect + " wrong!");
+
+		return score;
+	}
 
 
-	})
-  
 
-   // if ($('input[name="optradio"]:checked').val() == currentAnswer){
-	//userScore.correct++;
-	//} else{
-   // userScore.incorrect++;
-	//}
-	//console.log(userScore);
-
-   // $('#submitbutton').on('click', function () {
-
-    
-
-   // })
 
 
 //end of document.ready function
 })
-
